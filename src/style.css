@@ -1,0 +1,166 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#F5EFE5;
+
+    color:#47392F;
+
+    font-family:Georgia,serif;
+
+}
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 24px;
+
+}
+
+.book-icon{
+
+    font-size:56px;
+
+    margin-bottom:24px;
+
+}
+
+.title{
+
+    font-size:clamp(2.8rem,7vw,5.5rem);
+
+    line-height:1;
+
+    font-weight:600;
+
+}
+
+.subtitle{
+
+    margin-top:28px;
+
+    max-width:620px;
+
+    font-size:1.15rem;
+
+    color:#6d5d51;
+
+    line-height:1.8;
+
+}
+
+.countdown-area{
+
+    margin-top:70px;
+
+}
+
+.label{
+
+    letter-spacing:5px;
+
+    font-size:.8rem;
+
+    color:#9c8d80;
+
+    margin-bottom:18px;
+
+}
+
+#countdown{
+
+    font-size:clamp(2.2rem,6vw,4.6rem);
+
+    font-weight:bold;
+
+}
+
+.hint{
+
+    margin-top:60px;
+
+    font-style:italic;
+
+    color:#99897b;
+
+    opacity:.8;
+
+}
+.next-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:80px 24px;
+
+    background:#efe6d8;
+
+}
+
+.page-placeholder{
+
+    width:min(900px,90vw);
+
+    padding:80px;
+
+    background:#fffdf8;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.05);
+
+}
+
+.page-placeholder span{
+
+    letter-spacing:6px;
+
+    color:#b59663;
+
+    font-size:.8rem;
+
+}
+
+.page-placeholder h2{
+
+    margin-top:18px;
+
+    font-size:3rem;
+
+}
+
+.page-placeholder p{
+
+    margin-top:24px;
+
+    font-size:1.1rem;
+
+    color:#7b6d60;
+
+}
