@@ -164,3 +164,54 @@ body{
     color:#7b6d60;
 
 }
+.book-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#efe6d8;
+
+}
+
+.open-book{
+
+    margin-top:60px;
+
+}
+
+#openBook{
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#5B4636;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#openBook:hover{
+
+    transform:translateY(-3px);
+
+}
+
+#bookApp{
+
+    display:none;
+
+}
