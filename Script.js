@@ -1,24 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Birthday Card</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-<!-- ✅ FIX: script phải nằm TRONG head -->
-<script defer>
+  <!-- JS (QUAN TRỌNG: đặt trong head + defer) -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+
+  <main class="container">
+
+    <!-- COVER -->
+    <section id="cover" class="section">
+
+      <div class="text-block">
+        <h1 class="title">Happy Birthday 🎂</h1>
+        <h2>PHAN HOÀNG LAN ANH</h2>
+        <p>Scroll to open your story ✨</p>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-area">
+        <div class="label">Countdown to Birthday</div>
+        <div id="countdown">Loading...</div>
+        <div class="hint">Waiting for the special day 💚</div>
+      </div>
+
+    </section>
+
+    <!-- OPENING -->
+    <section id="opening" class="section">
+
+      <div class="text-block">
+        <h2>Opening</h2>
+        <p>
+          Dear Lan Anh của chị...
+        </p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/opening/opening1.jpg" />
+        <img src="images/opening/opening2.jpg" />
+      </div>
+
+    </section>
+
+    <!-- HOW WE MET -->
+    <section id="how-we-met" class="section">
+
+      <div class="text-block">
+        <h2>How We Met</h2>
+        <p>
+          Bọn mình gặp nhau vào một ngày thu...
+        </p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/hwm/hwm1.jpg" />
+        <img src="images/hwm/hwm2.jpg" />
+        <img src="images/hwm/hwm3.jpg" />
+      </div>
+
+    </section>
+
+    <!-- WHAT WE'VE BEEN THROUGH -->
+    <section id="what-weve-been-through" class="section">
+
+      <div class="text-block">
+        <h2>What We've Been Through</h2>
+        <p>
+          Và rồi từ lúc đó em cùng chị lớn lên...
+        </p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/wb/wb1.jpg" />
+        <img src="images/wb/wb2.jpg" />
+        <img src="images/wb/wb3.jpg" />
+      </div>
+
+    </section>
+
+    <!-- MEANING -->
+    <section id="meaning" class="section">
+
+      <div class="text-block">
+        <h2>What You Mean To Me</h2>
+        <p>
+          Em là một người bạn...
+        </p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/meaning/m1.jpg" />
+        <img src="images/meaning/m2.jpg" />
+        <img src="images/meaning/m3.jpg" />
+      </div>
+
+    </section>
+
+    <!-- VIDEO -->
+    <section id="wish" class="section">
+
+      <div class="video-block">
+        <video controls>
+          <source src="videos/birthday-message.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
 document.addEventListener("DOMContentLoaded", function () {
-
   const countdownEl = document.getElementById("countdown");
 
   if (!countdownEl) {
-    console.error("Countdown not found");
+    console.error("Countdown element not found!");
     return;
   }
 
@@ -45,166 +157,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
-});
-</script>
-
-</head>
-
-<body>
-
-<!-- Progress bar -->
-<div id="progress-bar"></div>
-
-<main class="container">
-
-<!-- ========================= COVER + COUNTDOWN ========================== -->
-<section id="cover" class="section">
-
-  <div class="text-block">
-    <h1 class="title">Happy Birthday 🎂</h1>
-    <h2>PHAN HOÀNG LAN ANH MẬP ĐỊT RẤT ĐÁNG GHÉK</h2>
-    <p>Scroll to open your story ✨</p>
-  </div>
-
-  <!-- COUNTDOWN (GIỮ NGUYÊN) -->
-  <div class="countdown-area">
-    <div class="label">Countdown to Birthday</div>
-    <div id="countdown">Loading...</div>
-    <div class="hint">Waiting for the special day 💚</div>
-  </div>
-
-</section>
-
-<!-- OPENING -->
-<section id="opening" class="section">
-
-  <div class=" ">
-    <h2>Opening</h2>
-    <p>
-    Dear Lan Anh của chị, cho chị khoe cái đã, chị đã code chiếc web này để mừng sinh nhật em một cách siêu gấp, chị đã code ngày code đêm code ngay cả khi đi công tác. Rồi vô nè. Lan Anh của chị là một cô gái hội tụ gần như đủ tất cả những đặc điểm mà mọi cô gái mơ ước. Em có nhan sắc, có nền tảng kinh tế mạnh, em có khả năng mạnh mẽ tự lo cho bản thân, em có giới hạn và biết đúng chừng mực đúng sai mà người ta có thể đối xử với em. Thế nên chị cảm thấy không gì trên đời mà em không có được, trừ chị.
-    </p>
-  </div>
-
-  <div class="gallery">
-    <img src="images/opening/opening1.jpg" alt="">
-    <img src="images/opening/opening2.jpg" alt="">
-  </div>
-
-  <section id="how-we-met" class="section">
-
-  <div class="text-block">
-    <h2>How We Met</h2>
-  </div>
-
-  <div class="gallery">
-    <img src="images/hwm/hwm1.jpg">
-    <img src="images/hwm/hwm2.jpg">
-    <img src="images/hwm/hwm3.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-    Bọn mình gặp nhau vào một ngày thu random khi chị đang mặc quần Meap và Perry, nó buồn cười nhưng giờ z m nhớ mới kĩ em ơi, mà bữa đó c mặc trong nhà chứ có lang thang phố xá gì đâu mà ngại. Từ cái quần đặc biệt đó mà chị rồi em rồi Nị bắt đầu câu chuyện tình bạn của tụi mình. Từ những ngày tuy có vật vã vì tình yêu nhưng lại rất “hồn nhiên” và “khoẻ”. Đủ khoẻ để đi ăn khắp cái Vancouver cho dù đầu trời đất bể. Đủ hồn nhiên để có thể giữ được tình bạn đến ngày hôm nay. Cảm ơn sự xuất hiện của em. Cảm ơn vì giúp chị nhớ ra hồi đó mặt mày tròn hơn mặt chị.
-    </p>
-  </div>
-
-  <div class="gallery">
-    <img src="images/hwm/hwm4.jpg">
-    <img src="images/hwm/hwm5.jpg">
-    <img src="images/hwm/hwm6.jpg">
-    <img src="images/hwm/hwm7.jpg">
-  </div>
-
-</section>
-
-</section>
-
-<!-- WHAT WE'VE BEEN THROUGH -->
-<section id="what-weve-been-through" class="section">
-
-  <div class="text-block">
-    <h2>What We've Been Through</h2>
-
-    <p>
-    Và rồi từ lúc đó em cùng chị lớn lên, tụi mình cùng nhau đi từ ngày chị tốt nghiệp cấp 3 ở nơi xa lạ, đến khi chị tốt nghiệp ở Việt Nam cùng gia đình. Em cũng là một phần gia đình của chị.
-    </p>
-
-  </div>
-
-  <div class="gallery">
-    <img src="images/wb/wb1.jpg">
-    <img src="images/wb/wb2.jpg">
-    <img src="images/wb/wb3.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-    Đã từ bao giờ chị không còn xem em chỉ là một người bạn đơn thuần nữa mà là em gái của chị. Người em gái chị có thể trêu vô cùng mất dạy. Toàn bộ thời gian đó có biết bao nhiêu thứ mà chị em mình đã cùng trải qua, chị biết là có những lúc bọn mình vô cùng trẻ con, nhưng cũng có lúc bọn mình cũng đã cố gắng gồng mình làm “người lớn” hết mức có thể để có thể xử lí việc mà chỉ có người lớn mới có khả năng làm.
-    </p>
-  </div>
-
-  <div class="gallery">
-    <img src="images/wb/wb4.jpg">
-    <img src="images/wb/wb5.jpg">
-    <img src="images/wb/wb6.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-    Chị rất vinh hạnh được đồng hành và trải qua nhiều chuyện trong cuộc đời của 2 đứa mình cùng nhau. Dù vui hay buồn hay trẻ trâu hay là gì đi nữa. Miễn là có sự đồng hành là chị đã đủ cảm thấy may mắn vì đã giữ được mối quan hệ này một cách không vụ lợi, không gì phải che giấu với nhau cả. Và mặt chị tròn lên theo năm tháng, còn em thì ốm dần đều.
-    </p>
-  </div>
-
-  <div class="gallery">
-    <img src="images/wb/wb7.jpg">
-    <img src="images/wb/wb8.jpg">
-    <img src="images/wb/wb9.jpg">
-    <img src="images/wb/wb10.jpg">
-  </div>
-
-</section>
-
-<!-- MEANING -->
-<section id="meaning" class="section">
-
-  <div class="text-block">
-    <h2>What You Mean To Me</h2>
-
-    <p>
-    Em là một người bạn - một người chị em gái mà chị nghĩ còn thân hơn cả chị em gái ruột trong nhà. Cảm ơn em vì đã xuất hiện, đã ấn tượng với quần meep của chị, đã kiên nhẫn đồng hành cùng chị trong những năm tháng qua. Chị cảm thấy greatful cuz we met, and became sisters.
-    </p>
-
-  </div>
-
-  <div class="gallery">
-    <img src="images/meaning/m1.jpg">
-    <img src="images/meaning/m2.jpg">
-    <img src="images/meaning/m3.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-    Cảm ơn cô gái bề ngoài cứng cỏi, bên trong mềm mại, nữ tính, đáng yêu, nhiệt tình, tận tình và đầy ấm áp. Cảm ơn em vì đã luôn chấp nhận làm nhiều điều ngớ ngẩn cùng chị.
-    </p>
-  </div>
-
-  <div class="gallery">
-    <img src="images/meaning/m4.jpg">
-    <img src="images/meaning/m5.jpg">
-    <img src="images/meaning/m6.jpg">
-    <img src="images/meaning/m7.jpg">
-  </div>
-
-</section>
-
-<!-- FINAL VIDEO -->
-<section id="wish" class="section">
-
-  <div class="video-block">
-    <video controls preload="metadata" playsinline>
-      <source src="videos/birthday-message.mp4" type="video/mp4">
-    </video>
-  </div>
-
-</section>
+  
