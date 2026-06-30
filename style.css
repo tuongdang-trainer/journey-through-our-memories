@@ -299,7 +299,7 @@ img{
 }
 
 .image-row img{
-    width: 45px;   /* chỉnh size ảnh ở đây */
+    width: 450px;   /* chỉnh size ảnh ở đây */
     height: auto;
     border-radius: 16px;
     object-fit: cover;
