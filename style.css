@@ -293,13 +293,13 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     flex-wrap: wrap; /* xuống dòng khi nhỏ màn hình */
     margin: 40px auto;
 }
 
 .image-row img{
-    width: 40px;   /* chỉnh size ảnh ở đây */
+    width: 45px;   /* chỉnh size ảnh ở đây */
     height: auto;
     border-radius: 16px;
     object-fit: cover;
