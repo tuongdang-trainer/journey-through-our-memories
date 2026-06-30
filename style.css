@@ -286,3 +286,21 @@ img{
     margin: 0 auto;
     border-radius: 16px;
 }
+/* =========================
+   IMAGE ROW (SIDE BY SIDE)
+========================= */
+.image-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* xuống dòng khi nhỏ màn hình */
+    margin: 40px auto;
+}
+
+.image-row img{
+    width: 40px;   /* chỉnh size ảnh ở đây */
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
