@@ -13,6 +13,31 @@ window.addEventListener("DOMContentLoaded", () => {
   let confettiTriggered = false;
 
   function launchConfetti() {
+    function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = birthdayDate - now;
+
+  if (distance <= 0) {
+    countdownEl.innerHTML = "🎉 Happy Birthday!";
+    if (!confettiTriggered) {
+      launchConfetti();
+      confettiTriggered = true;
+    }
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % 1000 * 60) / 1000);
+
+  countdownEl.innerHTML = `
+    ${days}d ${hours}h ${minutes}m ${seconds}s
+  `;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
     const canvas = document.createElement("canvas");
     canvas.id = "confetti-canvas";
     document.body.appendChild(canvas);
