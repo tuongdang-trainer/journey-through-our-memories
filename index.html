@@ -10,8 +10,43 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- INLINE JS (NO NEED script.js FILE) -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const countdownEl = document.getElementById("countdown");
+
+      if (!countdownEl) return;
+
+      // 👉 SET BIRTHDAY HERE
+      const birthday = new Date("2026-07-04T00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = birthday - now;
+
+        if (diff <= 0) {
+          countdownEl.innerHTML = "🎉 Happy Birthday!";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdownEl.innerHTML =
+          `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+    });
+  </script>
 </head>
-<script src="script.js" defer></script>
+
 <body>
 
   <!-- Progress bar -->
@@ -19,14 +54,12 @@
 
   <main class="container">
 
-    <!-- =========================
-         COVER + COUNTDOWN
-    ========================== -->
+    <!-- COVER -->
     <section id="cover" class="section">
 
       <div class="text-block">
         <h1 class="title">Happy Birthday 🎂</h1>
-        <h2>PHAN HOÀNG LAN ANH MẬP ĐỊT RẤT ĐÁNG GHÉK</h2>
+        <h2>PHAN HOÀNG LAN ANH</h2>
         <p>Scroll to open your story ✨</p>
       </div>
 
@@ -41,139 +74,71 @@
 
     <!-- OPENING -->
     <section id="opening" class="section">
+      <div class="text-block">
+        <h2>Opening</h2>
+        <p>
+          Dear Lan Anh của chị, cho chị khoe cái đã...
+        </p>
+      </div>
 
-  <div class="
-">
-    <h2>Opening</h2>
+      <div class="gallery">
+        <img src="images/opening/opening1.jpg" />
+        <img src="images/opening/opening2.jpg" />
+      </div>
+    </section>
 
-    <p>
-   Dear Lan Anh của chị, cho chị khoe cái đã, chị đã code chiếc web này để mừng sinh nhật em một cách siêu gấp, chị đã code ngày code đêm code ngay cả khi đi công tác. Rồi vô nè.
-Lan Anh của chị là một cô gái hội tụ gần như đủ tất cả những đặc điểm mà mọi cô gái mơ ước. Em có nhan sắc, có nền tảng kinh tế mạnh, em có khả năng mạnh mẽ tự lo cho bản thân, em có giới hạn và biết đúng chừng mực đúng sai mà người ta có thể đối xử với em. Thế nên chị cảm thấy không gì trên đời mà em không có được, trừ chị. 
-    </p>
-  </div>
+    <!-- HOW WE MET -->
+    <section id="how-we-met" class="section">
+      <div class="text-block">
+        <h2>How We Met</h2>
+        <p>Bọn mình gặp nhau vào một ngày thu...</p>
+      </div>
 
-<div class="gallery">
-    <img src="images/opening/opening1.jpg" alt="">
-    <img src="images/opening/opening2.jpg" alt="">
-</div>
-
-<section id="how-we-met" class="section">
-
-  <div class="text-block">
-    <h2>How We Met</h2>
-
-    </p>
-  </div>
-
-  <div class="gallery">
-   <img src="images/hwm/hwm1.jpg">
-<img src="images/hwm/hwm2.jpg">
-<img src="images/hwm/hwm3.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-   Bọn mình gặp nhau vào một ngày thu random khi chị đang mặc quần Meap và Perry, nó buồn cười nhưng giờ z m nhớ mới kĩ em ơi, mà bữa đó c mặc trong nhà chứ có lang thang phố xá gì đâu mà ngại. Từ cái quần đặc biệt đó mà chị rồi em rồi Nị bắt đầu câu chuyện tình bạn của tụi mình. Từ những ngày tuy có vật vã vì tình yêu nhưng lại rất “hồn nhiên” và “khoẻ”. Đủ khoẻ để đi ăn khắp cái Vancouver cho dù đầu trời đất bể. Đủ hồn nhiên để có thể giữ được tình bạn đến ngày hôm nay. Cảm ơn sự xuất hiện của em. Cảm ơn vì giúp chị nhớ ra hồi đó mặt mày tròn hơn mặt chị. 
-    </p>
-  </div>
-
-  <div class="gallery">
- <img src="images/hwm/hwm4.jpg">
-<img src="images/hwm/hwm5.jpg">
-<img src="images/hwm/hwm6.jpg">
-<img src="images/hwm/hwm7.jpg">
-  </div>
-
-</section>
-
-</section>
+      <div class="gallery">
+        <img src="images/hwm/hwm1.jpg" />
+        <img src="images/hwm/hwm2.jpg" />
+        <img src="images/hwm/hwm3.jpg" />
+      </div>
+    </section>
 
     <!-- WHAT WE'VE BEEN THROUGH -->
     <section id="what-weve-been-through" class="section">
+      <div class="text-block">
+        <h2>What We've Been Through</h2>
+        <p>Và rồi từ lúc đó em cùng chị lớn lên...</p>
+      </div>
 
-  <div class="text-block">
-    <h2>What We've Been Through</h2>
-
-    <p>
-    Và rồi từ lúc đó em cùng chị lớn lên, tụi mình cùng nhau đi từ ngày chị tốt nghiệp cấp 3 ở nơi xa lạ, đến khi chị tốt nghiệp ở Việt Nam cùng gia đình. Em cũng là một phần gia đình của chị. 
-    </p>
-  </div>
-
-  <div class="gallery">
-  <img src="images/wb/wb1.jpg">
-<img src="images/wb/wb2.jpg">
-<img src="images/wb/wb3.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-   Đã từ bao giờ chị không còn xem em chỉ là một người bạn đơn thuần nữa mà là em gái của chị. Người em gái chị có thể trêu vô cùng mất dạy. Toàn bộ thời gian đó có biết bao nhiêu thứ mà chị em mình đã cùng trải qua, chị biết là có những lúc bọn mình vô cùng trẻ con, nhưng cũng có lúc bọn mình cũng đã cố gắng gồng mình làm “người lớn” hết mức có thể để có thể xử lí việc mà chỉ có người lớn mới có khả năng làm.
-    </p>
-  </div>
-
-  <div class="gallery">
-  <img src="images/wb/wb4.jpg">
-<img src="images/wb/wb5.jpg">
-<img src="images/wb/wb6.jpg">
-  </div>
-
-  <div class="text-block">
-    <p>
-   Chị rất vinh hạnh được đồng hành và trải qua nhiều chuyện trong cuộc đời của 2 đứa mình cùng nhau. Dù vui hay buồn hay trẻ trâu hay là gì đi nữa. Miễn là có sự đồng hành là chị đã đủ cảm thấy may mắn vì đã giữ được mối quan hệ này một cách không vụ lợi, không gì phải che giấu với nhau cả. Và mặt chị tròn lên theo năm tháng, còn em thì ốm dần đều. 
-    </p>
-  </div>
-
-  <div class="gallery">
-  <img src="images/wb/wb7.jpg">
-<img src="images/wb/wb8.jpg">
-<img src="images/wb/wb9.jpg">
-<img src="images/wb/wb10.jpg">
-  </div>
-
-</section>
+      <div class="gallery">
+        <img src="images/wb/wb1.jpg" />
+        <img src="images/wb/wb2.jpg" />
+        <img src="images/wb/wb3.jpg" />
+      </div>
+    </section>
 
     <!-- MEANING -->
     <section id="meaning" class="section">
+      <div class="text-block">
+        <h2>What You Mean To Me</h2>
+        <p>Em là một người bạn...</p>
+      </div>
 
-  <div class="text-block">
-    <h2>What You Mean To Me</h2>
+      <div class="gallery">
+        <img src="images/meaning/m1.jpg" />
+        <img src="images/meaning/m2.jpg" />
+        <img src="images/meaning/m3.jpg" />
+      </div>
+    </section>
 
-    <p>
-    Em là một người bạn - một người chị em gái mà chị nghĩ còn thân hơn cả chị em gái ruột trong nhà. Cảm ơn em vì đã xuất hiện, đã ấn tượng với quần meep của chị, đã kiên nhẫn đồng hành cùng chị trong những năm tháng qua. Chị cảm thấy greatful cuz we met, and became sisters. 
-    </p>
-  </div>
+    <!-- VIDEO -->
+    <section id="wish" class="section">
+      <div class="video-block">
+        <video controls>
+          <source src="videos/birthday-message.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
 
-  <div class="gallery">
-   <img src="images/meaning/m1.jpg">
-<img src="images/meaning/m2.jpg">
-<img src="images/meaning/m3.jpg">
-  </div>
+  </main>
 
-  <div class="text-block">
-    <p>
-  Cảm ơn cô gái bề ngoài cứng cỏi, bên trong mềm mại, nữ tính, đáng yêu, nhiệt tình, tận tình và đầy ấm áp. Cảm ơn em vì đã luôn chấp nhận làm nhiều điều ngớ ngẩn cùng chị. 
-    </p>
-  </div>
-
-  <div class="gallery">
-<img src="images/meaning/m4.jpg">
-<img src="images/meaning/m5.jpg">
-<img src="images/meaning/m6.jpg">
-<img src="images/meaning/m7.jpg">
-  </div>
-
-</section>
-
-<!-- =========================
-     FINAL VIDEO
-========================= -->
-
-<section id="wish" class="section">
-
-  <div class="video-block">
-    <video controls preload="metadata" playsinline>
-      <source src="videos/birthday-message.mp4" type="video/mp4">
-    </video>
-  </div>
-
-</section>
+</body>
+</html>
