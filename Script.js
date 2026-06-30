@@ -1,8 +1,11 @@
-
 console.log("SCRIPT IS LOADED");
 
 window.addEventListener("DOMContentLoaded", () => {
-const birthdayDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
+
+  const birthdayDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
+
+  console.log("Birthday target:", new Date(birthdayDate));
+
   const countdownEl = document.getElementById("countdown");
 
   if (!countdownEl) {
@@ -15,15 +18,22 @@ const birthdayDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
   function launchConfetti() {
     const canvas = document.createElement("canvas");
     canvas.id = "confetti-canvas";
+
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "9999";
+
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const pieces = [];
-
     const colors = ["#A8D5BA", "#E3EFE6", "#B7C9B8", "#ffffff"];
 
     for (let i = 0; i < 120; i++) {
@@ -41,7 +51,6 @@ const birthdayDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       pieces.forEach((p) => {
-        ctx.beginPath();
         ctx.fillStyle = p.color;
         ctx.fillRect(p.x, p.y, p.r, p.r);
 
