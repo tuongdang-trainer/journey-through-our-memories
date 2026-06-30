@@ -275,3 +275,14 @@ audio{
         0 30px 80px rgba(0,0,0,.35);
 
 }
+/* =========================
+   IMAGE SIZE CONTROL
+========================= */
+img{
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+}
