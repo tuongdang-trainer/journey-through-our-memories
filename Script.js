@@ -1,160 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Card</title>
+console.log("SCRIPT IS LOADED");
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+window.addEventListener("DOMContentLoaded", () => {
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- JS (QUAN TRỌNG: đặt trong head + defer) -->
-  <script src="script.js" defer></script>
-</head>
-
-<body>
-
-  <!-- Progress bar -->
-  <div id="progress-bar"></div>
-
-  <main class="container">
-
-    <!-- COVER -->
-    <section id="cover" class="section">
-
-      <div class="text-block">
-        <h1 class="title">Happy Birthday 🎂</h1>
-        <h2>PHAN HOÀNG LAN ANH</h2>
-        <p>Scroll to open your story ✨</p>
-      </div>
-
-      <!-- COUNTDOWN -->
-      <div class="countdown-area">
-        <div class="label">Countdown to Birthday</div>
-        <div id="countdown">Loading...</div>
-        <div class="hint">Waiting for the special day 💚</div>
-      </div>
-
-    </section>
-
-    <!-- OPENING -->
-    <section id="opening" class="section">
-
-      <div class="text-block">
-        <h2>Opening</h2>
-        <p>
-          Dear Lan Anh của chị...
-        </p>
-      </div>
-
-      <div class="gallery">
-        <img src="images/opening/opening1.jpg" />
-        <img src="images/opening/opening2.jpg" />
-      </div>
-
-    </section>
-
-    <!-- HOW WE MET -->
-    <section id="how-we-met" class="section">
-
-      <div class="text-block">
-        <h2>How We Met</h2>
-        <p>
-          Bọn mình gặp nhau vào một ngày thu...
-        </p>
-      </div>
-
-      <div class="gallery">
-        <img src="images/hwm/hwm1.jpg" />
-        <img src="images/hwm/hwm2.jpg" />
-        <img src="images/hwm/hwm3.jpg" />
-      </div>
-
-    </section>
-
-    <!-- WHAT WE'VE BEEN THROUGH -->
-    <section id="what-weve-been-through" class="section">
-
-      <div class="text-block">
-        <h2>What We've Been Through</h2>
-        <p>
-          Và rồi từ lúc đó em cùng chị lớn lên...
-        </p>
-      </div>
-
-      <div class="gallery">
-        <img src="images/wb/wb1.jpg" />
-        <img src="images/wb/wb2.jpg" />
-        <img src="images/wb/wb3.jpg" />
-      </div>
-
-    </section>
-
-    <!-- MEANING -->
-    <section id="meaning" class="section">
-
-      <div class="text-block">
-        <h2>What You Mean To Me</h2>
-        <p>
-          Em là một người bạn...
-        </p>
-      </div>
-
-      <div class="gallery">
-        <img src="images/meaning/m1.jpg" />
-        <img src="images/meaning/m2.jpg" />
-        <img src="images/meaning/m3.jpg" />
-      </div>
-
-    </section>
-
-    <!-- VIDEO -->
-    <section id="wish" class="section">
-
-      <div class="video-block">
-        <video controls>
-          <source src="videos/birthday-message.mp4" type="video/mp4">
-        </video>
-      </div>
-
-    </section>
-
-  </main>
-
-</body>
-</html>
-document.addEventListener("DOMContentLoaded", function () {
+  const birthdayDate = new Date("2026-07-01T00:00:0").getTime();
   const countdownEl = document.getElementById("countdown");
 
   if (!countdownEl) {
-    console.error("Countdown element not found!");
+    console.log("❌ Countdown element not found");
     return;
   }
 
-  // 👉 chỉnh ngày sinh nhật ở đây
-  const birthday = new Date("2026-07-04T00:00:00").getTime();
+  let confettiTriggered = false;
 
+  // =========================
+  // CONFETTI EFFECT
+  // =========================
+  function launchConfetti() {
+    const canvas = document.createElement("canvas");
+    canvas.id = "confetti-canvas";
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const pieces = [];
+    const colors = ["#A8D5BA", "#E3EFE6", "#B7C9B8", "#ffffff"];
+
+    for (let i = 0; i < 120; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 2,
+        d: Math.random() * 120,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        tilt: Math.random() * 10 - 10
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      pieces.forEach((p) => {
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.r, p.r);
+
+        p.y += 2 + p.d * 0.01;
+        p.x += Math.sin(p.tilt) * 2;
+
+        if (p.y > canvas.height) {
+          p.y = -10;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    setTimeout(() => {
+      canvas.remove();
+    }, 8000);
+  }
+
+  // =========================
+  // COUNTDOWN LOGIC (FIXED)
+  // =========================
   function updateCountdown() {
     const now = new Date().getTime();
-    const diff = birthday - now;
+    const distance = birthdayDate - now;
 
-    if (diff <= 0) {
-      countdownEl.innerHTML = "🎉 Happy Birthday!";
+    if (distance <= 0) {
+      countdownEl.innerHTML = "🎉 It's your birthday! 🎉";
+
+      if (!confettiTriggered) {
+        launchConfetti();
+        confettiTriggered = true;
+      }
+
       return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdownEl.innerHTML =
-      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
+  // start loop
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  
+
+});
