@@ -1,8 +1,8 @@
+
 console.log("SCRIPT IS LOADED");
 
 window.addEventListener("DOMContentLoaded", () => {
-
-  const birthdayDate = new Date("2026-07-01T00:00:0").getTime();
+  const birthdayDate = new Date("2026-07-01T00:00:00").getTime();
   const countdownEl = document.getElementById("countdown");
 
   if (!countdownEl) {
@@ -12,10 +12,32 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let confettiTriggered = false;
 
-  // =========================
-  // CONFETTI EFFECT
-  // =========================
   function launchConfetti() {
+    function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = birthdayDate - now;
+
+  if (distance <= 0) {
+    countdownEl.innerHTML = "🎉 Happy Birthday!";
+    if (!confettiTriggered) {
+      launchConfetti();
+      confettiTriggered = true;
+    }
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % 1000 * 60) / 1000);
+
+  countdownEl.innerHTML = `
+    ${days}d ${hours}h ${minutes}m ${seconds}s
+  `;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
     const canvas = document.createElement("canvas");
     canvas.id = "confetti-canvas";
     document.body.appendChild(canvas);
@@ -26,6 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
     canvas.height = window.innerHeight;
 
     const pieces = [];
+
     const colors = ["#A8D5BA", "#E3EFE6", "#B7C9B8", "#ffffff"];
 
     for (let i = 0; i < 120; i++) {
@@ -43,6 +66,7 @@ window.addEventListener("DOMContentLoaded", () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       pieces.forEach((p) => {
+        ctx.beginPath();
         ctx.fillStyle = p.color;
         ctx.fillRect(p.x, p.y, p.r, p.r);
 
@@ -65,9 +89,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 8000);
   }
 
-  // =========================
-  // COUNTDOWN LOGIC (FIXED)
-  // =========================
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = birthdayDate - now;
@@ -88,11 +109,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownEl.innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  // start loop
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
 });
