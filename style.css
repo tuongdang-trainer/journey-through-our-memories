@@ -279,7 +279,7 @@ audio{
    IMAGE SIZE CONTROL
 ========================= */
 img{
-    max-width: 45px;
+    max-width: 250px;
     width: 100%;
     height: auto;
     display: block;
