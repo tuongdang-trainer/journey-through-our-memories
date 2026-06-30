@@ -287,20 +287,27 @@ img{
     border-radius: 16px;
 }
 /* =========================
-   IMAGE ROW (SIDE BY SIDE)
+/* =========================
+   IMAGE GRID GALLERY
 ========================= */
-.image-row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap; /* xuống dòng khi nhỏ màn hình */
+.image-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
     margin: 40px auto;
+    max-width: 1000px;
+    padding: 0 20px;
 }
 
-.image-row img{
-    width: 450px;   /* chỉnh size ảnh ở đây */
-    height: auto;
-    border-radius: 16px;
+.image-grid img{
+    width: 100%;
+    height: 280px;   /* giữ form ảnh đồng đều */
     object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover{
+    transform: scale(1.03);
 }
