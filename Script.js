@@ -1,17 +1,31 @@
-console.log("SCRIPT IS LOADED");
+console.log("Countdown loaded");
 
-window.addEventListener("DOMContentLoaded", () => {
+const countdownEl = document.getElementById("countdown");
 
-  const birthdayDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
+// set thời gian mục tiêu
+const targetDate = new Date(2026, 6, 1, 0, 0, 0).getTime();
 
-  console.log("Birthday target:", new Date(birthdayDate));
+function updateCountdown() {
+  const now = new Date().getTime(); // 🔥 phải nằm trong function
+  const distance = targetDate - now;
 
-  const countdownEl = document.getElementById("countdown");
-
-  if (!countdownEl) {
-    console.log("❌ Countdown element not found");
+  if (distance <= 0) {
+    countdownEl.innerHTML = "🎉 It's time!";
+    clearInterval(timer);
     return;
   }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// chạy ngay lập tức + chạy mỗi giây
+updateCountdown();
+const timer = setInterval(updateCountdown, 1000);
 
   let confettiTriggered = false;
 
