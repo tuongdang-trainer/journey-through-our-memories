@@ -2,7 +2,7 @@ console.log("SCRIPT IS LOADED");
 
 window.addEventListener("DOMContentLoaded", () => {
 
-  const birthdayDate = new Date("2026-07-01T00:00:00").getTime();
+  const birthdayDate = new Date("2026-07-01T00:00:01").getTime();
   const countdownEl = document.getElementById("countdown");
 
   if (!countdownEl) {
