@@ -1,0 +1,241 @@
+
+/* =========================
+   FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* =========================
+   BODY BASE (SAGE THEME)
+========================= */
+
+
+
+
+
+body{
+    background: radial-gradient(circle at top, #2E3F37 0%, #22312A 55%, #1A241E 100%);
+    color:#D8E6DA;
+
+    font-family:'Inter', sans-serif;
+    line-height:2.0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ambient glow */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+       radial-gradient(circle at 20% 20%, rgba(140,200,160,0.12), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(80,120,90,0.08), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(200,255,210,0.05), transparent 50%);
+    filter: blur(40px);
+}
+
+/* paper texture */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:0.03;
+    background-image:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    mix-blend-mode:soft-light;
+}
+
+/* =========================
+   PUSH CONTENT DOWN (BALANCED)
+========================= */
+
+.container{
+    padding-top:500px;
+}
+
+body{
+    padding-top:500px;
+}
+
+/* =========================
+   TYPOGRAPHY SYSTEM
+========================= */
+
+.title{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(3.5rem,8vw,6.5rem);
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:2px;
+    text-align:center;
+    color:#F8FFF9;
+
+    margin-bottom:60px;
+}
+
+h2{
+    font-family:'Playfair Display', serif;
+    font-size:clamp(2rem,3.5vw,3rem);
+    font-weight:600;
+    line-height:1.25;
+    text-align:center;
+    color:#F6FBF6;
+
+    letter-spacing:0.6px;
+}
+
+.subtitle,
+p{
+    font-size:1.1rem;
+    line-height:2.0;
+
+    color:#C7D3C8;
+
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+    letter-spacing:0.5px;
+}
+
+/* labels */
+.label,
+.hint{
+    font-size:0.8rem;
+    letter-spacing:10px;
+    text-transform:uppercase;
+    color:#7FA68B;
+    text-align:center;
+    line-height:1.4;
+}
+
+/* =========================
+   HERO CENTER
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:0 24px;
+
+    gap:24px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-area{
+    margin-top:200px;
+    margin-bottom:200px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    gap:12px;
+}
+
+#countdown{
+    font-size:clamp(2.5rem,6vw,5rem);
+    font-weight:600;
+    letter-spacing:3px;
+
+    color:#F0FFF2;
+
+    padding:24px 34px;
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.6);
+    border:1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:
+        0 25px 60px rgba(70,85,70,.12),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    line-height:1.1;
+
+    transition:all .3s ease;
+}
+
+#countdown:hover{
+    transform:translateY(-2px) scale(1.01);
+}
+
+/* =========================
+   AUDIO CENTER FIX
+========================= */
+
+.audio-block{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    margin-top:20px;
+}
+
+audio{
+    width:500px;
+    max-width:100%;
+
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(70,85,70,.15);
+}
+
+/* =========================
+   SECTION ANIMATION
+========================= */
+
+.section{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   GLOBAL FIX
+========================= */
+
+*{
+    text-wrap:pretty;
+}

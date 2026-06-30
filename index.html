@@ -1,13 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>journey-through-our-memories</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+
+  <main class="container">
+
+    <!-- =========================
+         COVER + COUNTDOWN
+    ========================== -->
+    <section id="cover" class="section">
+
+      <div class="text-block">
+        <h1 class="title">Happy Birthday 🎂</h1>
+        <h2>PHAN HOÀNG LAN ANH MẬP ĐỊT RẤT ĐÁNG GHÉK</h2>
+        <p>Scroll to open your story ✨</p>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown-area">
+        <div class="label">Countdown to Birthday</div>
+        <div id="countdown">Loading...</div>
+        <div class="hint">Waiting for the special day 💚</div>
+      </div>
+
+    </section>
+
+    <!-- OPENING -->
+    <section id="opening" class="section">
+      <div class="text-block">
+        <h2>Opening</h2>
+        <p>[Write your opening message here...]</p>
+      </div>
+    </section>
+
+    <!-- HOW WE MET -->
+    <section id="how-we-met" class="section">
+      <div class="text-block">
+        <h2>How we met</h2>
+        <p>[Short story about how you met]</p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/hwm1.jpg" alt="">
+        <img src="images/hwm2.jpg" alt="">
+        <img src="images/hwm3.jpg" alt="">
+        <img src="images/hwm4.jpg" alt="">
+        <img src="images/hwm5.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- WHAT WE'VE BEEN THROUGH -->
+    <section id="what-weve-been-through" class="section">
+      <div class="text-block">
+        <h2>What we've been through</h2>
+        <p>[Story / reflection]</p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/wb1.jpg" alt="">
+        <img src="images/wb2.jpg" alt="">
+        <img src="images/wb3.jpg" alt="">
+        <img src="images/wb4.jpg" alt="">
+        <img src="images/wb5.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- MEANING -->
+    <section id="meaning" class="section">
+      <div class="text-block">
+        <h2>What you mean to me</h2>
+        <p>[Deep emotional message]</p>
+      </div>
+
+      <div class="gallery">
+        <img src="images/m1.jpg" alt="">
+        <img src="images/m2.jpg" alt="">
+        <img src="images/m3.jpg" alt="">
+        <img src="images/m4.jpg" alt="">
+        <img src="images/m5.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- WISH + AUDIO -->
+    <section id="wish" class="section">
+      <div class="text-block">
+        <h2>Birthday Wish</h2>
+        <p>[Your birthday message here]</p>
+      </div>
+
+      <div class="audio-block">
+        <audio controls>
+          <source src="audio/birthday.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </section>
+
+    <!-- SIGNATURE -->
+    <section id="signature" class="section">
+      <div class="signature-content">
+        <img src="images/signature.jpg" alt="">
+        <p>— [Your name / nickname]</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
