@@ -239,3 +239,39 @@ audio{
 *{
     text-wrap:pretty;
 }
+/* =========================
+   FINAL VIDEO
+========================= */
+
+#wish .video-block{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:100px auto 120px;
+
+}
+
+#wish .video-block video{
+
+    width:min(1600px,95vw);
+
+    height:85vh;
+
+    display:block;
+
+    border-radius:28px;
+
+    object-fit:cover;
+
+    background:#000;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+
+}
